@@ -1,0 +1,77 @@
+[
+  {
+    "question": "Chính sách Trả hàng và Hoàn tiền của Shopee áp dụng cho những đối tượng nào?",
+    "expected_answer": "Chính sách Trả hàng và Hoàn tiền của Shopee áp dụng đối với Người Mua, Người Bán, các đơn vị cung cấp dịch vụ vận chuyển, nhân viên giao nhận (shipper) của các đơn vị vận chuyển trên Sàn Shopee và các bên khác có liên quan.",
+    "expected_context": "Chính Sách Trả Hàng và Hoàn Tiền này áp dụng đối với Người Mua, Người Bán, các đơn vị cung cấp dịch vụ vận chuyển, nhân viên giao nhận (shipper) của các đơn vị cung cấp dịch vụ vận chuyển trên Sàn Giao Dịch Thương Mại Điện Tử Shopee (“Sàn Shopee”) và/hoặc các bên khác có liên quan."
+  },
+  {
+    "question": "Thời Gian Shopee Đảm Bảo có vai trò gì trong việc giải quyết tranh chấp giữa Người Mua và Người Bán?",
+    "expected_answer": "Thời Gian Shopee Đảm Bảo là cơ chế hỗ trợ Người Dùng giải quyết các xung đột, tranh chấp, khiếu nại phát sinh trong giao dịch. Người dùng có thể thỏa thuận trực tiếp, báo cáo lên Shopee hoặc cơ quan nhà nước có thẩm quyền.",
+    "expected_context": "Thời Gian Shopee Đảm Bảo thực hiện bởi Shopee, theo yêu cầu của Người Dùng, để hỗ trợ Người Dùng trong việc giải quyết các xung đột, tranh chấp, khiếu nại có thể phát sinh trong quá trình giao dịch trên Sàn Shopee."
+  },
+  {
+    "question": "Dịch Vụ Hiển Thị Trang Chủ của Shopee hiển thị tại những vị trí nào?",
+    "expected_answer": "Dịch Vụ Hiển Thị Trang Chủ hiển thị tại 2 vị trí banner trang chủ thứ 10 và 11 ở đầu trang chủ Shopee trên cả máy tính và ứng dụng di động.",
+    "expected_context": "Dịch Vụ Hiển Thị Trang Chủ hiển thị trên 2 vị trí banner trang chủ thứ 10 và 11, đây là những vị trí xuất hiện ở đầu trang chủ Shopee mỗi khi người dùng truy cập trên máy tính và ứng dụng Shopee."
+  },
+  {
+    "question": "Ai có thể sử dụng Dịch Vụ Hiển Thị Trang Chủ của Shopee trong giai đoạn thử nghiệm?",
+    "expected_answer": "Dịch Vụ Hiển Thị Trang Chủ trong giai đoạn thử nghiệm chỉ mở cho Người bán thuộc Shopee Mall đã được Shopee lựa chọn.",
+    "expected_context": "Dịch Vụ Hiển Thị Trang Chủ vẫn đang trong giai đoạn thử nghiệm, và chỉ mở cho Người bán thuộc Shopee Mall đã được lựa chọn."
+  },
+  {
+    "question": "Chi phí của Dịch Vụ Hiển Thị Trang Chủ Shopee được tính như thế nào?",
+    "expected_answer": "Chi phí được thanh toán dựa trên số oCPM (chi phí cho mỗi 1.000 lần hiển thị) và có tính năng quản lý ngân sách cũng như dự tính lượt hiển thị trước khi xác nhận chiến dịch.",
+    "expected_context": "Chi phí sẽ được thanh toán dựa trên số oCPM (chi phí cho mỗi 1,000 lần hiển thị), và dễ dàng được quản lý qua tính năng quản lý ngân sách. Dễ dàng kiểm soát hiệu quả chiến dịch qua tính năng dự tính lượt hiển thị trước khi bạn xác nhận sử dụng Dịch vụ Hiển thị."
+  },
+  {
+    "question": "Tính năng Giá thầu Tự Động trong Quảng cáo Tìm kiếm Từ khóa của Shopee hoạt động như thế nào?",
+    "expected_answer": "Giá thầu Tự Động là thuật toán tự động điều chỉnh giá thầu cho từng từ khóa thủ công nhằm tối ưu hóa lượt nhấp hoặc chuyển đổi, giúp tăng trưởng doanh thu trong khi vẫn kiểm soát trong giới hạn ngân sách.",
+    "expected_context": "Hệ thống Giá thầu Tự Động giúp tối ưu hóa giá thầu cho các từ khóa thủ công của bạn để đem lại lượt nhấp hoặc chuyển đổi tốt hơn mà không vượt quá ngân sách đã thiết lập."
+  },
+  {
+    "question": "Quảng cáo Tìm kiếm Sản phẩm của Shopee giúp sản phẩm hiển thị ở đâu?",
+    "expected_answer": "Quảng cáo Tìm kiếm Sản phẩm giúp đưa sản phẩm lên các vị trí hàng đầu trên trang kết quả tìm kiếm khi người mua tìm kiếm các từ khóa có liên quan.",
+    "expected_context": "Quảng cáo Tìm kiếm Sản phẩm giúp sản phẩm của bạn hiển thị tại các vị trí nổi bật nhất ở trang kết quả tìm kiếm Shopee khi người mua tìm kiếm từ khóa tương ứng."
+  },
+  {
+    "question": "Người bán bắt đầu tạo chiến dịch Dịch vụ Hiển thị Shopee ở đâu trên Kênh Người Bán?",
+    "expected_answer": "Người bán truy cập trang chủ Quảng cáo Shopee trên Kênh Người Bán, nhấn nút '+Tạo chiến dịch mới' và chọn 'Dịch Vụ Hiển Thị'.",
+    "expected_context": "Trên trang chủ Quảng cáo Shopee trên Kênh Người Bán, hãy nhấp vào '+Tạo chiến dịch mới' và chọn 'Dịch Vụ Hiển Thị'."
+  },
+  {
+    "question": "Người mua có thể theo dõi tình trạng đơn hàng Shopee bằng cách nào theo chính sách vận chuyển?",
+    "expected_answer": "Người mua có thể theo dõi tình trạng vận chuyển đơn hàng trực tiếp trên ứng dụng Shopee tại mục 'Đơn mua' hoặc tra cứu qua mã vận đơn trên website của đơn vị vận chuyển đối tác.",
+    "expected_context": "Người Mua có thể theo dõi quá trình giao nhận hàng thông qua ứng dụng Shopee hoặc sử dụng mã vận đơn được cung cấp để tra cứu trên hệ thống của đơn vị vận chuyển."
+  },
+  {
+    "question": "Shopee có cho phép đồng kiểm khi nhận hàng không?",
+    "expected_answer": "Chương trình Đồng kiểm cho phép người mua kiểm tra ngoại quan gói hàng (số lượng, mẫu mã bên ngoài) tại thời điểm nhận hàng từ shipper theo quy định cụ thể của Shopee, không được mở seal hoặc thử sản phẩm.",
+    "expected_context": "Quy định đồng kiểm cho phép Người Mua kiểm tra tình trạng bên ngoài của kiện hàng cùng nhân viên giao nhận tại thời điểm giao hàng theo chính sách hiện hành."
+  },
+  {
+    "question": "Người dùng Shopee có trách nhiệm gì đối với thông tin đăng nhập tài khoản của mình theo Điều khoản dịch vụ?",
+    "expected_answer": "Người dùng có trách nhiệm bảo mật mật khẩu và thông tin tài khoản, chịu hoàn toàn trách nhiệm cho mọi hoạt động diễn ra dưới tài khoản của mình và phải thông báo ngay cho Shopee khi nghi ngờ có truy cập trái phép.",
+    "expected_context": "Người Dùng có trách nhiệm bảo mật mật khẩu tài khoản và chịu toàn bộ trách nhiệm đối với các hoạt động phát sinh từ tài khoản của mình trên Sàn Shopee."
+  },
+  {
+    "question": "Người mua cần cung cấp bằng chứng gì khi yêu cầu trả hàng/hoàn tiền do hàng bị bể vỡ hoặc hư hỏng?",
+    "expected_answer": "Người mua cần cung cấp hình ảnh/video rõ nét về kiện hàng khi nhận, phiếu gửi hàng có mã vận đơn và tình trạng thực tế của sản phẩm bị bể vỡ hoặc hư hỏng.",
+    "expected_context": "Người Mua cần cung cấp hình ảnh rõ ràng về sản phẩm bị lỗi, hư hại, bao bì bọc hàng và thông tin mã vận đơn để Shopee làm căn cứ xem xét yêu cầu hoàn tiền."
+  },
+  {
+    "question": "Shopee cập nhật giá thầu tối thiểu cho các loại hình Dịch vụ Hiển thị nhằm mục đích gì?",
+    "expected_answer": "Việc cập nhật giá thầu tối thiểu nhằm đảm bảo tính cạnh tranh lành mạnh trên sàn, tối ưu hiệu quả phân phối vị trí hiển thị và duy trì chất lượng trải nghiệm quảng cáo của người bán.",
+    "expected_context": "Cập nhật giá thầu tối thiểu nhằm điều chỉnh mức độ cạnh tranh giữa các nhà bán hàng và nâng cao hiệu quả hiển thị cho các chiến dịch quảng cáo trên sàn."
+  },
+  {
+    "question": "Thời hạn tối đa để Người Mua gửi yêu cầu Trả hàng và Hoàn tiền trên Shopee là bao lâu kể từ khi đơn hàng giao thành công?",
+    "expected_answer": "Thời hạn yêu cầu trả hàng hoàn tiền là trong vòng 15 ngày đối với sản phẩm thuộc Shopee Mall, hoặc theo thời hạn quy định cụ thể của Thời Gian Shopee Đảm Bảo cho từng loại Người Bán.",
+    "expected_context": "Thời hạn khiếu nại trả hàng hoàn tiền được áp dụng theo Thời Gian Shopee Đảm Bảo, trong đó sản phẩm Shopee Mall có thời hạn tiêu chuẩn lên đến 15 ngày kể từ ngày giao hàng thành công."
+  },
+  {
+    "question": "Theo Điều khoản dịch vụ của Shopee, các hành vi nào bị nghiêm cấm liên quan đến việc bán hàng?",
+    "expected_answer": "Nghiêm cấm đăng bán hàng giả, hàng nhái, hàng vi phạm quyền sở hữu trí tuệ, các mặt hàng cấm theo quy định pháp luật Việt Nam, hoặc các hành vi thao túng đánh giá, đơn hàng ảo.",
+    "expected_context": "Người Bán tuyệt đối không được đăng bán hàng giả, hàng xâm phạm quyền sở hữu trí tuệ, hàng hóa thuộc danh mục cấm lưu hành theo pháp luật Việt Nam và quy chế hoạt động của Sàn Shopee."
+  }
+]
