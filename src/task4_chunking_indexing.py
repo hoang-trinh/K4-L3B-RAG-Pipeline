@@ -12,6 +12,7 @@ chạy lại pipeline không tạo dữ liệu trùng. Task 5 phải dùng chung
 """
 
 import os
+import time
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -69,13 +70,33 @@ def embed_texts(texts: list[str]) -> list[list[float]]:
         if not api_key:
             raise ValueError("GEMINI_API_KEY is not set in environment or .env file.")
         client = genai.Client(api_key=api_key)
-        model = os.getenv("EMBEDDING_MODEL", "text-embedding-004")
-        if "bge" in model.lower() or not model:
-            model = "text-embedding-004"
+        model = os.getenv("EMBEDDING_MODEL", "gemini-embedding-001")
+        if "bge" in model.lower() or "text-embedding" in model.lower() or not model:
+            model = "gemini-embedding-001"
+
+        batch_size = 50
         embeddings = []
-        for text in texts:
-            res = client.models.embed_content(model=model, contents=text)
-            embeddings.append(res.embedding.values)
+        for i in range(0, len(texts), batch_size):
+            batch_texts = texts[i : i + batch_size]
+            for attempt in range(6):
+                try:
+                    res = client.models.embed_content(model=model, contents=batch_texts)
+                    if hasattr(res, "embeddings") and res.embeddings:
+                        for item in res.embeddings:
+                            embeddings.append(item.values)
+                    elif hasattr(res, "embedding") and res.embedding:
+                        embeddings.append(res.embedding.values)
+                    else:
+                        raise ValueError("Could not extract embeddings from Gemini response.")
+                    break
+                except Exception as exc:
+                    if "429" in str(exc) or "RESOURCE_EXHAUSTED" in str(exc):
+                        wait_sec = 10 * (attempt + 1)
+                        print(f"Gemini rate limit hit, waiting {wait_sec}s before retry...")
+                        time.sleep(wait_sec)
+                    else:
+                        raise exc
+            time.sleep(0.5)
         return embeddings
     else:
         # Default: sentence_transformers

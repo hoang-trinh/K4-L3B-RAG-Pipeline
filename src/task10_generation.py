@@ -189,4 +189,14 @@ def generate_with_citation(query: str, top_k: int = TOP_K) -> dict:
 
 
 if __name__ == "__main__":
-    print(generate_with_citation("test query"))
+    import sys
+    if sys.platform == "win32":
+        try:
+            sys.stdout.reconfigure(encoding="utf-8")
+        except Exception:
+            pass
+    sample_query = "Quảng cáo Shopee là gì?"
+    print(f"--- Đặt câu hỏi thử nghiệm: '{sample_query}' ---")
+    result = generate_with_citation(sample_query)
+    print(f"\n[Câu trả lời từ Groq ({LLM_MODEL or 'openai/gpt-oss-120b'})]:\n{result['answer']}")
+    print(f"\n[Số tài liệu trích dẫn]: {len(result['sources'])} (Phương thức: {result['retrieval_source']})")

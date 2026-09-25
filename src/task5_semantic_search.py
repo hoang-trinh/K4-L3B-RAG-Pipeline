@@ -57,5 +57,16 @@ def semantic_search(query: str, top_k: int = 10) -> list[dict]:
 
 
 if __name__ == "__main__":
-    for result in semantic_search("test query", top_k=3):
-        print(result)
+    import sys
+    if sys.platform == "win32":
+        try:
+            sys.stdout.reconfigure(encoding="utf-8")
+        except Exception:
+            pass
+    print("--- Chạy thử Semantic Search (Task 5) ---")
+    results = semantic_search("quảng cáo Shopee", top_k=3)
+    if not results:
+        print("Không tìm thấy kết quả nào.")
+    for idx, result in enumerate(results, 1):
+        print(f"[{idx}] ID: {result['id']} | Score: {result['score']:.4f}")
+        print(f"    Nội dung: {result['content'][:120]}...\n")
