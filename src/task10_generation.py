@@ -29,8 +29,16 @@ TEMPERATURE = 0.3
 LLM_PROVIDER = os.getenv("LLM_PROVIDER", "groq").lower()
 LLM_MODEL = os.getenv("LLM_MODEL", "")
 
-SYSTEM_PROMPT = """Trả lời chỉ từ context được cung cấp.
-Mỗi khẳng định phải có citation. Nếu thiếu evidence, hãy từ chối xác minh."""
+SYSTEM_PROMPT = """Bạn là trợ lý AI thông minh chuyên hỗ trợ tra cứu và giải đáp thông tin từ các tài liệu chính sách, vận chuyển, đổi trả và điều khoản dịch vụ.
+
+Quy tắc phản hồi:
+1. Giao tiếp xã giao (Small-talk/Chitchat):
+   - Nếu người dùng chỉ chào hỏi, cảm ơn, khen ngợi hoặc giao tiếp thông thường (ví dụ: 'xin chào', 'hello', 'cảm ơn', 'bạn là ai', 'chào bạn',...): Hãy phản hồi một cách tự nhiên, lịch sự, thân thiện và sẵn sàng hướng dẫn người dùng đặt câu hỏi về tài liệu (ở trường hợp này KHÔNG cần trích dẫn citation).
+
+2. Câu hỏi tra cứu thông tin:
+   - Trả lời CHÍNH XÁC và DỰA HOÀN TOÀN vào Context được cung cấp.
+   - Mỗi khẳng định hoặc thông tin lấy từ tài liệu BẮT BUỘC phải có trích dẫn nguồn rõ ràng theo định dạng [Document X] hoặc [Tên tài liệu].
+   - Nếu Context không chứa đủ thông tin để trả lời, hãy lịch sự thông báo không tìm thấy thông tin phù hợp trong tài liệu hiện có, tuyệt đối không tự suy đoán hoặc bịa đặt thông tin."""
 
 
 def reorder_for_llm(chunks: list[dict]) -> list[dict]:
@@ -155,8 +163,13 @@ def generate_with_citation(query: str, top_k: int = TOP_K) -> dict:
     """Trả về GenerationResult gồm answer, sources và retrieval_source."""
     chunks = retrieve(query, top_k=top_k)
     if not chunks:
+        # Nếu không có chunks, vẫn cho LLM trả lời (đặc biệt phù hợp câu chào hỏi/xã giao)
+        try:
+            answer = call_llm(SYSTEM_PROMPT, f"Question: {query}")
+        except Exception:
+            answer = "Tôi không thể xác minh thông tin này từ nguồn hiện có."
         return {
-            "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+            "answer": answer,
             "sources": [],
             "retrieval_source": "none",
         }
@@ -189,4 +202,17 @@ def generate_with_citation(query: str, top_k: int = TOP_K) -> dict:
 
 
 if __name__ == "__main__":
-    print(generate_with_citation("test query"))
+    import sys
+
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
+
+    query = "Quy định về thời gian đổi trả hàng là bao lâu?"
+    print(f"Testing Question: {query}\n" + "=" * 50)
+    result = generate_with_citation(query)
+    print("Answer:\n", result["answer"])
+    print("\nRetrieval Source:", result["retrieval_source"])
+    print(f"\nSources ({len(result['sources'])} chunks):")
+    for s in result["sources"][:3]:
+        print(f"- [{s['metadata'].get('title')}] ({s['metadata'].get('source')}): score={s['score']:.4f}")
+

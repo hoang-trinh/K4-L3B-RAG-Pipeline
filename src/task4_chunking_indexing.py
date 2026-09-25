@@ -65,6 +65,7 @@ def embed_texts(texts: list[str]) -> list[list[float]]:
         return [item.embedding for item in response.data]
     elif provider == "gemini":
         from google import genai
+
         api_key = os.getenv("GEMINI_API_KEY")
         if not api_key:
             raise ValueError("GEMINI_API_KEY is not set in environment or .env file.")
@@ -72,11 +73,16 @@ def embed_texts(texts: list[str]) -> list[list[float]]:
         model = os.getenv("EMBEDDING_MODEL", "text-embedding-004")
         if "bge" in model.lower() or not model:
             model = "text-embedding-004"
-        embeddings = []
-        for text in texts:
-            res = client.models.embed_content(model=model, contents=text)
-            embeddings.append(res.embedding.values)
-        return embeddings
+
+        try:
+            res = client.models.embed_content(model=model, contents=texts)
+            return [e.values for e in res.embeddings]
+        except Exception:
+            embeddings = []
+            for text in texts:
+                res = client.models.embed_content(model=model, contents=text)
+                embeddings.append(res.embeddings[0].values)
+            return embeddings
     else:
         # Default: sentence_transformers
         model = get_embedding_model()
@@ -104,22 +110,68 @@ def get_collection():
     )
 
 
+def preprocess_text(content: str, doc_type: str = "legal") -> str:
+    """Xử lý và làm sạch dữ liệu văn bản trước khi chunking:
+    1. Loại bỏ các ký tự ngắt trang (form-feed \x0c), zero-width space, null bytes.
+    2. Loại bỏ rác crawl (thẻ ảnh Markdown rỗng, menu điều hướng lặp).
+    3. Chuẩn hóa các gạch đầu dòng (bullet points) và khoảng cách dòng thừa.
+    """
+    if not content:
+        return ""
+
+    import re
+
+    # 1. Loại bỏ ký tự đặc biệt / form-feed / zero-width space
+    text = content.replace("\x0c", "\n").replace("\ufeff", "").replace("\u200b", "").replace("\r\n", "\n")
+
+    # 2. Loại bỏ thẻ ảnh markdown: ![](url)
+    text = re.sub(r"!\[.*?\]\(.*?\)", "", text)
+
+    # 3. Chuẩn hóa các biểu tượng gạch đầu dòng
+    text = re.sub(r"^[ \t]*[●■◆▪★]\s*", "- ", text, flags=re.MULTILINE)
+
+    # 4. Loại bỏ các dòng điều hướng rác từ crawler đối với news
+    if doc_type == "news":
+        clean_lines = []
+        for line in text.splitlines():
+            s = line.strip()
+            # Bỏ qua các menu điều hướng không có giá trị nội dung
+            if s in ("Trang Chủ", "Loại", "Tìm Hiểu", "Tin Mới", "Tạo Chiến dịch", "Sự kiện", "Khoá học", "Mới"):
+                continue
+            clean_lines.append(line)
+        text = "\n".join(clean_lines)
+
+    # 5. Chuẩn hóa khoảng trắng và dòng trống liên tiếp (tối đa 2 dòng ngắt đoạn)
+    text = "\n".join(line.rstrip() for line in text.splitlines())
+    text = re.sub(r"\n{3,}", "\n\n", text)
+
+    return text.strip()
+
+
 def load_documents() -> list[dict]:
-    """Đọc Markdown và trả về danh sách Document."""
+    """Đọc Markdown, tiền xử lý làm sạch văn bản và trả về danh sách Document."""
     documents = []
     for path in sorted(STANDARDIZED_DIR.rglob("*.md")):
         if path.name.startswith("."):
             continue
         doc_type = "legal" if "legal" in path.parts else "news"
-        content = path.read_text(encoding="utf-8")
+        raw_content = path.read_text(encoding="utf-8")
+        
+        # Tiền xử lý làm sạch nội dung trước khi chunking
+        content = preprocess_text(raw_content, doc_type=doc_type)
+        if not content:
+            continue
+
         title = path.stem
         url = None
 
         # Trích xuất title và source url nếu có trong Header
-        for line in content.splitlines()[:10]:
+        for line in raw_content.splitlines()[:10]:
             trimmed = line.strip()
-            if trimmed.startswith("# ") and not title:
-                title = trimmed[2:].strip()
+            if trimmed.startswith("# ") and title == path.stem:
+                extracted_title = trimmed[2:].strip()
+                if extracted_title:
+                    title = extracted_title
             elif trimmed.startswith("**Source:**"):
                 url_val = trimmed.split("**Source:**", 1)[1].strip()
                 if url_val:

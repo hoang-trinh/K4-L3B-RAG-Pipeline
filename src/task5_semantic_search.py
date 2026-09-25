@@ -57,5 +57,15 @@ def semantic_search(query: str, top_k: int = 10) -> list[dict]:
 
 
 if __name__ == "__main__":
-    for result in semantic_search("test query", top_k=3):
-        print(result)
+    import sys
+
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
+
+    query = "chinh sach van chuyen"
+    results = semantic_search(query, top_k=3)
+    print(f"Found {len(results)} results for query: '{query}'")
+    for r in results:
+        print(f"- ID: {r['id']} | Score: {r['score']:.4f} | Source: {r['metadata'].get('source')}")
+
+

@@ -58,5 +58,14 @@ def retrieve(
 
 
 if __name__ == "__main__":
-    for result in retrieve("test query", top_k=3):
-        print(result)
+    import sys
+
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
+
+    query = "chính sách đổi trả hàng và hoàn tiền"
+    results = retrieve(query, top_k=3)
+    print(f"Hybrid Retrieval found {len(results)} results for query: '{query}'")
+    for r in results:
+        print(f"- ID: {r['id']} | Score: {r['score']:.4f} | Method: {r['retrieval_method']} | Source: {r['metadata'].get('source')}")
+

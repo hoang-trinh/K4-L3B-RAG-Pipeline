@@ -40,11 +40,10 @@ def build_bm25_index(corpus: list[dict]) -> BM25Okapi:
 
 def lexical_search(query: str, top_k: int = 10) -> list[dict]:
     """Trả về BM25 SearchResult theo score giảm dần."""
-    try:
-        import src.task6_lexical_search as lexical_mod
-    except ImportError:
-        import task6_lexical_search as lexical_mod
-    corpus = lexical_mod.CORPUS if lexical_mod.CORPUS else get_corpus()
+    import sys
+
+    mod = sys.modules.get(__name__)
+    corpus = getattr(mod, "CORPUS", None) or get_corpus()
     if not corpus:
         return []
 
@@ -84,5 +83,14 @@ def lexical_search(query: str, top_k: int = 10) -> list[dict]:
 
 
 if __name__ == "__main__":
-    for result in lexical_search("test query", top_k=3):
-        print(result)
+    import sys
+
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
+
+    query = "đổi trả hoàn tiền"
+    results = lexical_search(query, top_k=3)
+    print(f"BM25 Search found {len(results)} results for query: '{query}'")
+    for r in results:
+        print(f"- ID: {r['id']} | Score: {r['score']:.4f} | Source: {r['metadata'].get('source')}")
+
