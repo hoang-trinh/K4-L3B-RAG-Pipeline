@@ -1,0 +1,67 @@
+{
+  "documents": {
+    "legal/chinh-sach-tra-hang-va-hoan-tien.md": {
+      "doc_id": "pi-cmugivzfv001s09ny46bqs930",
+      "source": "chinh-sach-tra-hang-va-hoan-tien.md",
+      "title": "chinh-sach-tra-hang-va-hoan-tien",
+      "doc_type": "legal",
+      "url": null
+    },
+    "legal/chinh-sach-van-chuyen.md": {
+      "doc_id": "pi-cmugiw1gv000v0anzzm12kzs1",
+      "source": "chinh-sach-van-chuyen.md",
+      "title": "chinh-sach-van-chuyen",
+      "doc_type": "legal",
+      "url": null
+    },
+    "legal/dieu-khoan-dich-vu.md": {
+      "doc_id": "pi-cmugiw3d0001a0bnzun7zj6lg",
+      "source": "dieu-khoan-dich-vu.md",
+      "title": "dieu-khoan-dich-vu",
+      "doc_type": "legal",
+      "url": null
+    },
+    "news/article_01.md": {
+      "doc_id": "pi-cmugiw515000u0any993tq1oe",
+      "source": "article_01.md",
+      "title": "Tính năng Tối Ưu Giá thầu Ngày Sale",
+      "doc_type": "news",
+      "url": "https://ads.shopee.vn/news/557"
+    },
+    "news/article_02.md": {
+      "doc_id": "pi-cmugiw6gg001b0bnzhg2jjyo7",
+      "source": "article_02.md",
+      "title": "Tiếp cận khách hàng mục tiêu cùng Dịch Vụ Hiển Thị Trang Chủ",
+      "doc_type": "news",
+      "url": "https://ads.shopee.vn/news/1447"
+    },
+    "news/article_03.md": {
+      "doc_id": "pi-cmugiw81h000n0bnyqlx5uv5j",
+      "source": "article_03.md",
+      "title": "Cập nhật tên mới cho hai chỉ số ROI và CIR",
+      "doc_type": "news",
+      "url": "https://ads.shopee.vn/news/1293"
+    },
+    "news/article_04.md": {
+      "doc_id": "pi-cmugiw9d4001z09nzj7g1kjt4",
+      "source": "article_04.md",
+      "title": "Thúc đẩy lượng truy cập từ Trang chủ đến Shop của bạn với Dịch Vụ Hiển Thị Trang Chủ",
+      "doc_type": "news",
+      "url": "https://ads.shopee.vn/news/1225"
+    },
+    "news/article_05.md": {
+      "doc_id": "pi-cmugiwamv000o0bnyux8ig8rn",
+      "source": "article_05.md",
+      "title": "Dễ dàng tăng trưởng doanh thu từ Từ khóa thủ công với tính năng Giá thầu Tự Động",
+      "doc_type": "news",
+      "url": "https://ads.shopee.vn/news/713"
+    },
+    "news/article_06.md": {
+      "doc_id": "pi-cmugiwbyt002009nze8a1m4ln",
+      "source": "article_06.md",
+      "title": "Thiết lập Chiến dịch Đấu Thầu Từ Khóa mọi lúc mọi nơi với Ứng Dụng Shopee",
+      "doc_type": "news",
+      "url": "https://ads.shopee.vn/news/353"
+    }
+  }
+}
