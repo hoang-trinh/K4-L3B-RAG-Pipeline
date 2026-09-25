@@ -1,0 +1,77 @@
+[
+  {
+    "question": "Thời hạn Người Mua có thể gửi yêu cầu trả hàng/hoàn tiền đối với đơn hàng thông thường trên Shopee là bao lâu?",
+    "expected_answer": "Người Mua có thể gửi yêu cầu trả hàng/hoàn tiền trong vòng 15 (mười lăm) ngày kể từ lúc đơn hàng được cập nhật giao hàng thành công.",
+    "expected_context": "Người Mua có thể gửi yêu cầu trả hàng/hoàn tiền trong vòng 15 (mười lăm) ngày kể từ lúc đơn hàng được cập nhật giao hàng thành công."
+  },
+  {
+    "question": "Đối với sản phẩm là thực phẩm tươi sống và đông lạnh, thời hạn gửi yêu cầu trả hàng hoàn tiền là bao lâu?",
+    "expected_answer": "Đối với các sản phẩm là thực phẩm tươi sống và đông lạnh, Người Mua cần gửi yêu cầu trả hàng/hoàn tiền trong vòng 24 giờ kể từ lúc đơn hàng được cập nhật giao hàng thành công.",
+    "expected_context": "Riêng đối với các Sản Phẩm là thực phẩm tươi sống và đông lạnh, Người Mua cần gửi yêu cầu trả hàng/hoàn tiền trong vòng 24 giờ kể từ lúc đơn hàng được cập nhật giao hàng thành công."
+  },
+  {
+    "question": "Những trường hợp nào Người Mua được quyền yêu cầu trả hàng và hoàn tiền trên Shopee?",
+    "expected_answer": "Người Mua có thể yêu cầu trả hàng/hoàn tiền khi không nhận được hàng hoặc thiếu hàng, nhận hàng giả/hàng nhái, sản phẩm bị lỗi hoặc hư hại trong quá trình vận chuyển, giao sai sản phẩm (sai kích cỡ, màu sắc), sản phẩm khác biệt rõ rệt so với mô tả, sản phẩm hết hạn sử dụng, hoặc trả hàng COM khi không còn nhu cầu.",
+    "expected_context": "Người Mua đã thanh toán bằng các phương thức thanh toán hợp lệ và trực tiếp trên Trang Shopee nhưng (i) không nhận được Sản Phẩm, hoặc (ii) không nhận được toàn bộ các Sản Phẩm đã đặt, hoặc (iii) nhận được Sản Phẩm là hàng giả, hàng nhái; Sản Phẩm bị lỗi hoặc bị hư hại trong quá trình vận chuyển; Người Bán giao sai Sản Phẩm cho Người Mua (ví dụ: sai kích cỡ, sai màu sắc, v.v); Sản Phẩm mà Người Mua nhận được khác biệt một cách rõ rệt so với thông tin mà Người Bán cung cấp trong mục mô tả sản phẩm; Sản Phẩm hết hạn sử dụng; Sản Phẩm ở trạng thái nguyên vẹn và nguyên bao bì nhưng Người Mua không còn nhu cầu ('Trả hàng COM')."
+  },
+  {
+    "question": "Đối tượng nào được áp dụng chính sách Trả hàng COM khi không còn nhu cầu?",
+    "expected_answer": "Chính sách Trả hàng COM áp dụng cho Người Mua là thành viên của Chương trình khách hàng thân thiết Shopee đạt hạng Vàng và Kim Cương, hoặc Người Mua đang sử dụng Gói ShopeeVIP.",
+    "expected_context": "Trả hàng COM sẽ chỉ được áp dụng với các đối tượng như sau ('Người Mua hợp lệ'): i. Người Mua là thành viên của Chương trình khách hàng thân thiết Shopee đạt hạng Vàng và Kim Cương; ii. Người Mua đang sử dụng Gói ShopeeVIP."
+  },
+  {
+    "question": "Đối với đơn hàng COD hoặc chuyển khoản ngân hàng, tài khoản Shopee cần điều kiện gì trước khi yêu cầu hoàn tiền?",
+    "expected_answer": "Tài khoản Shopee của Người Mua phải liên kết thành công với các phương thức nhận hoàn tiền hợp lệ theo quy định (như Tài Khoản Ngân Hàng hoặc ví điện tử như Ví ShopeePay) trước khi thực hiện yêu cầu.",
+    "expected_context": "Đối với các đơn hàng được thanh toán bằng hình thức Thanh toán khi nhận hàng (COD) và/hoặc Chuyển khoản ngân hàng, tài khoản Shopee của Người Mua phải liên kết với các phương thức nhận hoàn tiền hợp lệ theo quy định áp dụng của Shopee (ví dụ như Tài Khoản Ngân Hàng và/hoặc các ví điện tử hợp lệ như Ví ShopeePay) trước khi thực hiện yêu cầu Trả hàng / Hoàn tiền."
+  },
+  {
+    "question": "Những loại hàng hóa nào không được hỗ trợ vận chuyển trên Sàn Shopee?",
+    "expected_answer": "Các loại hàng hóa không hỗ trợ vận chuyển gồm hàng thuộc danh mục cấm/hạn chế, các vật phẩm làm bằng vàng, bạc, đá quý hoặc kim khí quý khác, hóa chất tẩy rửa đậm đặc, dung dịch/bột dùng pha chế sản xuất công nghiệp, và đơn hàng có giá trị hàng hóa lớn hơn 50.000.000 VNĐ.",
+    "expected_context": "Các loại hàng hóa không hỗ trợ vận chuyển trên Sàn Shopee bao gồm nhưng không giới hạn các loại hàng hóa sau: a. Hàng hóa thuộc danh mục cấm/hạn chế trên Sàn Shopee; b. Các vật phẩm làm bằng vàng, bạc, đá quý hoặc các loại kim khí quý khác; c. Hóa chất tẩy rửa đậm đặc, dung dịch/ bột dùng pha chế sản xuất công nghiệp; d. Đơn hàng có giá trị hàng hóa lớn hơn 50.000.000VNĐ"
+  },
+  {
+    "question": "Mức giá trị đơn hàng tối đa được hỗ trợ vận chuyển trên sàn Shopee là bao nhiêu?",
+    "expected_answer": "Shopee không hỗ trợ vận chuyển đối với đơn hàng có giá trị hàng hóa lớn hơn 50.000.000 VNĐ (tính theo giá chưa giảm, không bao gồm mã giảm giá và phí vận chuyển).",
+    "expected_context": "Đơn hàng có giá trị hàng hóa lớn hơn 50.000.000VNĐ (Tổng giá trị hàng hóa với giá chưa giảm, không bao gồm mã giảm giá của Shopee, Người Bán và phí vận chuyển) sẽ không hỗ trợ vận chuyển."
+  },
+  {
+    "question": "Chính sách vận chuyển của Shopee có áp dụng khi người bán tự tổ chức giao hàng không?",
+    "expected_answer": "Không, Chính Sách Vận Chuyển không áp dụng đối với trường hợp Người Bán tự tổ chức vận chuyển hàng hóa của mình dù một phần hay toàn bộ.",
+    "expected_context": "Chính Sách Vận Chuyển này không áp dụng đối với trường hợp Người Bán tự tổ chức vận chuyển hàng hóa của Người Bán, dù một phần hoặc toàn bộ. Trong trường hợp này, Người Bán phải đảm bảo tuân thủ các quy định của pháp luật có liên quan và tự chịu trách nhiệm."
+  },
+  {
+    "question": "Khái niệm Người Mua và Người Bán trong chính sách Shopee được quy định như thế nào?",
+    "expected_answer": "Khái niệm Người Mua được dùng để chỉ Người Mua hoặc Người Nhận Hàng trong từng trường hợp; Khái niệm Người Bán được dùng để chỉ Người Bán hoặc Người Gửi Hàng trong từng trường hợp.",
+    "expected_context": "Khái niệm Người Mua sẽ được dùng để chỉ Người Mua hoặc Người Nhận Hàng trong từng trường hợp; Khái niệm Người Bán sẽ được dùng để chỉ Người Bán hoặc Người Gửi Hàng trong từng trường hợp."
+  },
+  {
+    "question": "Ai là đối tượng áp dụng của Chính sách Vận chuyển Shopee?",
+    "expected_answer": "Chính sách vận chuyển áp dụng đối với Người Mua, Người Bán, các đơn vị cung cấp dịch vụ vận chuyển, và nhân viên giao nhận (shipper) của các đơn vị vận chuyển trên Sàn TMĐT Shopee.",
+    "expected_context": "Chính Sách Vận Chuyển này áp dụng đối với Người Mua, Người Bán, các đơn vị cung cấp dịch vụ vận chuyển, nhân viên giao nhận (shipper) của các đơn vị cung cấp dịch vụ vận chuyển trên Sàn TMĐT Shopee ('Sàn Shopee')."
+  },
+  {
+    "question": "Tính năng Tối Ưu Giá thầu Ngày Sale mang lại mức tăng trưởng doanh thu chiến dịch bao nhiêu trong chiến dịch 9.9?",
+    "expected_answer": "Tính năng Tối Ưu Giá thầu Ngày Sale giúp tăng 13% doanh thu chiến dịch cho những Người bán sử dụng trong 24 giờ diễn ra chiến dịch 9.9.",
+    "expected_context": "13% Doanh thu chiến dịch tăng cho những Người bán sử dụng tính năng trong 24 giờ diễn ra chiến dịch 9.9"
+  },
+  {
+    "question": "Số lượng đơn hàng chiến dịch tăng bao nhiêu phần trăm trong ngày 8.8 khi người bán dùng tính năng Tối Ưu Giá thầu?",
+    "expected_answer": "Đơn hàng chiến dịch tăng 20% đối với những Người bán sử dụng tính năng trong 24 giờ diễn ra chiến dịch 8.8.",
+    "expected_context": "20% Đơn hàng chiến dịch tăng đối với những Người bán sử dụng tính năng trong 24 giờ diễn ra chiến dịch 8.8"
+  },
+  {
+    "question": "Dịch Vụ Hiển Thị Trang Chủ trên Shopee là gì và mang lại lợi ích gì cho người bán?",
+    "expected_answer": "Dịch Vụ Hiển Thị Trang Chủ cho phép người bán đặt trước vị trí banner trang chủ để quảng bá nhãn hàng hoặc sản phẩm cho người mua và thúc đẩy nhận diện thương hiệu với số lượt hiển thị được đảm bảo.",
+    "expected_context": "Dịch Vụ Hiển Thị Trang Chủ cho phép bạn có thể đặt trước vị trí banner trang chủ để quảng bá nhãn hàng hoặc sản phẩm cho người mua và thúc đẩy nhận diện thương hiệu với số lượt hiển thị được đảm bảo."
+  },
+  {
+    "question": "Tính năng Tùy chỉnh Đối tượng trong Dịch Vụ Hiển Thị Trang Chủ có công dụng gì?",
+    "expected_answer": "Tính năng Tùy chỉnh Đối tượng cho phép người bán quyết định và nhắm chọn nhóm đối tượng khách hàng mục tiêu cụ thể sẽ nhìn thấy biểu ngữ banner quảng cáo trên trang chủ Shopee.",
+    "expected_context": "giờ đây bạn có thể quyết định đối tượng sẽ thấy chiến dịch Dịch Vụ Hiển Thị Trang Chủ của bạn với tính năng mới mang tên 'Tùy chỉnh Đối tượng'"
+  },
+  {
+    "question": "Người bán có thể tạo chiến dịch Dịch Vụ Hiển Thị Trang Chủ qua đâu?",
+    "expected_answer": "Người bán tạo chiến dịch thông qua Kênh Người Bán của Shopee bằng cách nhấp chuột vào '+ Tạo chiến dịch mới' và chọn 'Dịch Vụ Hiển Thị'.",
+    "expected_context": "Bạn có thể dễ dàng tạo chiến dịch Dịch Vụ Hiển Thị Trang Chủ của mình thông qua Kênh Người Bán của Shopee, bằng cách nhấp chuột vào '+ Tạo chiến dịch mới' và chọn 'Dịch Vụ Hiển Thị'."
+  }
+]

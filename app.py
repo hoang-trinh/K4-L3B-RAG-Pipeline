@@ -1,8 +1,20 @@
 import os
+import sys
+from pathlib import Path
 import streamlit as st
 from dotenv import load_dotenv
 
-from src.task10_generation import generate_with_citation
+# Đảm bảo cả project root và src/ đều nằm trong sys.path để tương thích mọi linter và runner
+ROOT_DIR = Path(__file__).parent.resolve()
+SRC_DIR = ROOT_DIR / "src"
+for path_str in (str(ROOT_DIR), str(SRC_DIR)):
+    if path_str not in sys.path:
+        sys.path.insert(0, path_str)
+
+try:
+    from task10_generation import generate_with_citation
+except ImportError:
+    from src.task10_generation import generate_with_citation
 
 load_dotenv()
 

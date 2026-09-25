@@ -12,10 +12,10 @@ Giới hạn khuyến nghị: 1 trang, không chép lại README hoặc mô tả
 
 ## Thông tin
 
-- Họ và tên: Trịnh Quốc Hoàng
-- Mã học viên: 2A202602847
-- Nhóm: Delta
-- Repository/branch: hoang-trinh/K4-L3B-RAG-Pipeline/hoang
+- Họ và tên: 
+- Mã học viên: 
+- Nhóm: 
+- Repository/branch: 
 
 ## Phần việc đã thực hiện
 
