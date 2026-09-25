@@ -5,7 +5,10 @@ Embed query bằng chính hàm của Task 4, query ChromaDB và đổi cosine di
 thành similarity. Output phải theo SearchResult, sort giảm dần và không quá top_k.
 """
 
-from .task4_chunking_indexing import embed_texts, get_collection
+try:
+    from .task4_chunking_indexing import embed_texts, get_collection
+except ImportError:
+    from task4_chunking_indexing import embed_texts, get_collection
 
 
 def semantic_search(query: str, top_k: int = 10) -> list[dict]:

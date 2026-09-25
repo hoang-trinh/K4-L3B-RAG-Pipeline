@@ -45,16 +45,33 @@ def embed_texts(texts: list[str]) -> list[list[float]]:
     """Dispatch theo EMBEDDING_PROVIDER trong .env."""
     provider = os.getenv("EMBEDDING_PROVIDER", "sentence_transformers").lower()
 
+    if provider == "groq":
+        raise ValueError(
+            "Groq API hiện chưa cung cấp endpoint embeddings. "
+            "Để chạy cloud không tốn phí, hãy đặt EMBEDDING_PROVIDER=gemini (dùng text-embedding-004 miễn phí) "
+            "hoặc EMBEDDING_PROVIDER=openai hoặc EMBEDDING_PROVIDER=sentence_transformers (chạy local)."
+        )
+
     if provider == "openai":
         from openai import OpenAI
-        client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        api_key = os.getenv("OPENAI_API_KEY")
+        if not api_key:
+            raise ValueError("OPENAI_API_KEY is not set in environment or .env file.")
+        client = OpenAI(api_key=api_key)
         model = os.getenv("EMBEDDING_MODEL", "text-embedding-3-small")
+        if "bge" in model.lower() or not model:
+            model = "text-embedding-3-small"
         response = client.embeddings.create(input=texts, model=model)
         return [item.embedding for item in response.data]
     elif provider == "gemini":
         from google import genai
-        client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+        api_key = os.getenv("GEMINI_API_KEY")
+        if not api_key:
+            raise ValueError("GEMINI_API_KEY is not set in environment or .env file.")
+        client = genai.Client(api_key=api_key)
         model = os.getenv("EMBEDDING_MODEL", "text-embedding-004")
+        if "bge" in model.lower() or not model:
+            model = "text-embedding-004"
         embeddings = []
         for text in texts:
             res = client.models.embed_content(model=model, contents=text)

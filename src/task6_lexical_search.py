@@ -9,7 +9,10 @@ liệu và tên riêng. Output phải theo SearchResult và sort score giảm d�
 import math
 import numpy as np
 from rank_bm25 import BM25Okapi
-from .task4_chunking_indexing import chunk_documents, load_documents
+try:
+    from .task4_chunking_indexing import chunk_documents, load_documents
+except ImportError:
+    from task4_chunking_indexing import chunk_documents, load_documents
 
 CORPUS: list[dict] = []
 
@@ -37,7 +40,10 @@ def build_bm25_index(corpus: list[dict]) -> BM25Okapi:
 
 def lexical_search(query: str, top_k: int = 10) -> list[dict]:
     """Trả về BM25 SearchResult theo score giảm dần."""
-    import src.task6_lexical_search as lexical_mod
+    try:
+        import src.task6_lexical_search as lexical_mod
+    except ImportError:
+        import task6_lexical_search as lexical_mod
     corpus = lexical_mod.CORPUS if lexical_mod.CORPUS else get_corpus()
     if not corpus:
         return []
