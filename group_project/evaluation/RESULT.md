@@ -53,13 +53,24 @@ Hai config sử dụng cùng golden dataset, generator, prompt và `top_k=5`; ch
 
 | Priority | Action | Evidence from failure analysis | Expected impact | How to verify |
 | -------: | ------ | ------------------------------ | --------------- | ------------- |
+<<<<<<< HEAD
 |        1 | **Bổ sung Cross-Encoder Reranker** (như `bge-reranker-large` hoặc Jina) sau bước RRF. | Các câu hỏi chứa điều kiện đặc biệt (như thực phẩm 24h) cần mô hình Cross-Encoder để phân biệt ngữ cảnh chi tiết giữa 15 ngày và 24 giờ. | Tăng Context Precision lên > 0.93 và cải thiện độ chuẩn xác của Context đưa vào LLM. | Chạy lại script benchmark `evaluate_pipeline.py` và so sánh điểm Context Precision. |
 |        2 | **Tối ưu hóa chiến lược Chunking** (kết hợp Markdown Header Splitter để giữ trọn vẹn tiêu đề điều khoản). | Một số đoạn chunk bị cắt ngang giữa bảng hoặc danh sách bullet gạch đầu dòng khiến thông tin điều kiện bị phân tán. | Cải thiện Context Recall thêm 5-8% trên các văn bản pháp lý dài. | Kiểm tra độ toàn vẹn của các chunks được sinh ra từ `task4_chunking_indexing.py`. |
 |        3 | **Hiệu chỉnh Semantic Cache và Fallback Threshold**. | Các câu hỏi tương tự nhau lặp lại nhiều lần làm tốn thời gian truy vấn vectorstore. | Giảm 60% latency cho các truy vấn phổ biến và kích hoạt fallback PageIndex chính xác hơn. | Đo độ trễ trung bình (p95 latency) trên giao diện Streamlit `app.py`. |
+=======
+|        1 | Áp dụng Semantic Chunking hoặc Header-based Chunking cho văn bản pháp lý | Failure Case 1 bị đứt đoạn điều khoản quan trọng do cắt cố định 500 ký tự | Tăng Context Recall thêm 5-8% trên các văn bản luật có cấu trúc điều/khoản | So sánh điểm Context Recall của bộ 5 câu hỏi pháp lý trước và sau khi đổi splitter |
+|        2 | Thắt chặt System Prompt về việc cấm bổ sung định nghĩa ngoài context | Failure Case 2 bị LLM giải thích thêm thuật ngữ oCPM | Nâng Faithfulness đạt mức tuyệt đối (> 0.96) cho các câu hỏi chứa từ viết tắt | Chạy lại metric Faithfulness trên 3 câu hỏi liên quan đến thuật ngữ quảng cáo |
+|        3 | Bổ sung Cross-Encoder Reranker chuyên dụng (BGE-Reranker-v2) sau RRF | Failure Case 3 bị nhiễu do nhiều chunk có từ khóa giống nhau nhưng không trả lời trọng tâm | Tăng Context Precision từ 0.885 lên trên 0.920 | Đo lường độ chính xác thứ tự xếp hạng của top-3 chunks sau rerank |
+>>>>>>> hoang
 
 ## Bonus experiments
 
 | Experiment | Baseline | Metric delta | Latency/cost delta | Conclusion |
 | ---------- | -------- | -----------: | -----------------: | ---------- |
+<<<<<<< HEAD
 | **Thử nghiệm Reordering (Lost-in-the-middle mitigation)** | Context tự nhiên theo thứ tự rank | Faithfulness +3.5%, Answer Relevance +2.8% | 0ms / 0$ chi phí | Đặt các chunk quan trọng nhất ở đầu và cuối context giúp LLM nắm bắt luận điểm chính xác hơn rõ rệt. |
 | **PageIndex Vectorless Fallback** | Không có fallback (trả rỗng khi score thấp) | Context Recall trên Out-of-domain +18% | +1.2s khi kích hoạt fallback | Giúp pipeline có cơ chế phục hồi dữ liệu dự phòng đáng tin cậy khi vectorstore không tìm thấy kết quả tự tin. |
+=======
+| Chuyển đổi LLM Generator: Groq LPU (`openai/gpt-oss-120b`) so với Local LLM (`Ollama Qwen2.5-7B`) | Local LLM | Faithfulness +0.03, Answer Relevance +0.05 | Latency giảm từ 8.4s xuống 0.72s (-91.4% thời gian chờ); Cost: Miễn phí | Groq Cloud LPU mang lại trải nghiệm tương tác thời gian thực vượt trội hoàn toàn cho Chatbot mà vẫn đảm bảo tính bảo mật và tuân thủ định dạng citation nghiêm ngặt. |
+| Đánh giá Embedding: Gemini Cloud 3072 chiều so với BGE-M3 1024 chiều | BGE-M3 (1024 dim) | Context Recall +0.04, Cosine Separation +0.12 | Tốc độ batching API đạt ~400 chunks trong 12s | Vector 3072 chiều của Gemini phân tách ngữ nghĩa các văn bản thương mại điện tử tiếng Việt rõ nét hơn, ngưỡng threshold phân định in-domain và out-of-domain đáng tin cậy hơn. |
+>>>>>>> hoang

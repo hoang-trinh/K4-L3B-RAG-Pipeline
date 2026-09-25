@@ -216,3 +216,13 @@ if __name__ == "__main__":
     for s in result["sources"][:3]:
         print(f"- [{s['metadata'].get('title')}] ({s['metadata'].get('source')}): score={s['score']:.4f}")
 
+    if sys.platform == "win32":
+        try:
+            sys.stdout.reconfigure(encoding="utf-8")
+        except Exception:
+            pass
+    sample_query = "Quảng cáo Shopee là gì?"
+    print(f"--- Đặt câu hỏi thử nghiệm: '{sample_query}' ---")
+    result = generate_with_citation(sample_query)
+    print(f"\n[Câu trả lời từ Groq ({LLM_MODEL or 'openai/gpt-oss-120b'})]:\n{result['answer']}")
+    print(f"\n[Số tài liệu trích dẫn]: {len(result['sources'])} (Phương thức: {result['retrieval_source']})")

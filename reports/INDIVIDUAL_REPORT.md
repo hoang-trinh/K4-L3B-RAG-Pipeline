@@ -13,9 +13,9 @@ Giới hạn khuyến nghị: 1 trang, không chép lại README hoặc mô tả
 ## Thông tin
 
 - Họ và tên: 
-- Mã học viên: 
-- Nhóm: 
-- Repository/branch: 
+- Mã học viên:
+- Nhóm: Delta
+- Repository/branch:
 
 ## Phần việc đã thực hiện
 

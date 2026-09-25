@@ -69,3 +69,15 @@ if __name__ == "__main__":
         print(f"- ID: {r['id']} | Score: {r['score']:.4f} | Source: {r['metadata'].get('source')}")
 
 
+    if sys.platform == "win32":
+        try:
+            sys.stdout.reconfigure(encoding="utf-8")
+        except Exception:
+            pass
+    print("--- Chạy thử Semantic Search (Task 5) ---")
+    results = semantic_search("quảng cáo Shopee", top_k=3)
+    if not results:
+        print("Không tìm thấy kết quả nào.")
+    for idx, result in enumerate(results, 1):
+        print(f"[{idx}] ID: {result['id']} | Score: {result['score']:.4f}")
+        print(f"    Nội dung: {result['content'][:120]}...\n")
